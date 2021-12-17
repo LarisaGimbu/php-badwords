@@ -1,13 +1,10 @@
 <?php 
-/*
-1) Creare una variabile con un paragrafo di testo a vostra scelta.
-2) Stampare a schermo il paragrafo e la sua lunghezza.
-3) Una parola da censurare viene passata dall’utente tramite parametro GET.
-4) Stampare di nuovo il paragrafo e la sua lunghezza, dopo aver sostituito con tre asterischi (***) tutte le occorrenze della parola da censurare.
-*/
 
-$text = 'Piove sulle tamerici salmastre ed arse, piove sui pini scagliosi ed irti piove su i mirti divini.'
+$text = 'piove sulle tamerici salmastre ed arse, piove sui pini scagliosi ed irti, piove su i mirti divini.';
 
+$censorWord = $_GET['wordToChange'];
+
+$censorText = str_replace($censorWord, '***', $text);
 
 ?>
 
@@ -21,8 +18,16 @@ $text = 'Piove sulle tamerici salmastre ed arse, piove sui pini scagliosi ed irt
   <title>PHP-badwords</title>
 </head>
 <body>
-  <h2>Il testo originale:</h2>
-  <p><?php echo $text ?></p>
-  <p>Il testo è lungo: <?php echo strlen($text)?> caratteri</p>
+  <div>
+    <h2>Il testo originale:</h2>
+    <p><?php echo $text ?></p>
+    <p>Il testo è lungo: <?php echo strlen($text)?> caratteri</p>
+  </div>
+
+  <div>
+    <h2>Il testo censurato:</h2>
+    <p> <?php echo $censorText?> </p>
+    <p>Il testo è lungo: <?php echo strlen($censorText)?> caratteri</p>
+  </div>
 </body>
 </html>
